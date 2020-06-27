@@ -7,4 +7,9 @@ export default {
 	getTranslatorList () {
 		return Api().get('tas/translatorList')
 	},
+	getSurahList () {
+		return Api().get('tas/getSuratList')
+	},
+
+
 }

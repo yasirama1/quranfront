@@ -4,7 +4,7 @@
 
     <div>
       <b-form-select v-model="filterData.surat_no" class="mb-3">
-        <b-form-select-option v-for="surah in surahList" :key="surah.number" :value="surah.number">{{surah.number}} - {{surah.englishName}}</b-form-select-option>
+        <b-form-select-option v-for="surah in surahList" :key="surah.id" :value="surah.id">{{surah.id}} - {{surah.name}}</b-form-select-option>
       </b-form-select>
 
 
@@ -52,7 +52,6 @@
 <script>
 
 import tasService from '@/services/tasService'
-import quranService from '@/services/quranService'
 
 
 export default {
@@ -97,7 +96,7 @@ export default {
     async loadSurahList(){
       
       try{
-        this.surahList = (await quranService.getSurahList()).data.data
+        this.surahList = (await tasService.getSurahList()).data
       }
       catch(e){
         console.log(e.message)
